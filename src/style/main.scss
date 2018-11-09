@@ -1,0 +1,142 @@
+* {
+    font-family: 'Montserrat', sans-serif; 
+    color: grey;
+    
+}
+.home {
+    display: grid;
+    border: 2px solid purple;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .final_submit {
+        margin-left: 588px;
+        color: rgb(255, 80, 45);
+    }
+    
+}
+.items {
+    border-bottom: 2px solid #00AAE8;
+    // border-radius: 4px;
+
+    background-color: white;
+
+    display: grid;
+    grid-template-rows: 75px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    justify-items: center;
+    align-items: center;
+
+    // padding: 10px;
+    margin: 10px;
+
+    width: 55vw;
+
+    // &__title {
+
+    // }
+
+    // &__number {
+        
+    // }
+
+    label {
+        display: flex;
+    }
+
+    input {
+        width: 50px;
+        height: 45px;
+
+        text-align: center;
+        
+        border: none;
+        border-top: 2px solid grey;
+        border-bottom: 2px solid grey;
+        background-color: none;
+
+    }
+    .input-span {
+        width: 50px;
+        height: 45px;
+        text-align: center;
+        
+        padding-top: 9px;
+        
+        border: none;
+        border-top: 2px solid grey;
+        border-bottom: 2px solid grey;
+        background-color: none;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    button {
+        width: 30px;
+        background-color: #FD6E50;
+        border: none;
+        border-top: 2px solid grey;
+        border-bottom: 2px solid grey;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+
+        
+    }
+    .decrement {
+        color: rgb(192, 192, 192);
+        border-left: 2px solid grey;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+        
+    }
+
+    .decrement:hover {
+        // background-color: rgb(255, 80, 45);
+        // color: white;
+        cursor: pointer;
+    }
+
+    .increment {
+        color: rgb(192, 192, 192);
+        border-right: 2px solid grey;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+
+        
+    }
+
+    .increment:hover {
+        background-color: rgb(255, 80, 45);
+        color: white;
+        cursor: pointer;
+    }
+    
+    button:focus {
+        outline: none;
+
+    }
+
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    justify-content: center;
+    // cursor:pointer;
+    // display:block;
+    // width:8px;
+    // color: #333;
+    // text-align:center;
+    // position:relative;
+}
+
+b {
+    color: #FD6E50;
+}
+
