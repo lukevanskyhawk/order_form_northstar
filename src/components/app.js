@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Items from './item.js';
+import Items from './Items.js';
+import ItemFamily from './ItemFamily.js';
 
 const itemData = [
   { title: 'Lyric Panel', productfamily: 'Panel', partNumber: '3123Z', id: '1' },
@@ -15,13 +16,58 @@ const itemData = [
 const Header = (props) => {
   return (
     <header>
-      <h1>{props.officeName}</h1>
-      <h2>{props.numberOfItems}</h2>
+      <h1>{props.officeName} <b>Part Request</b></h1>
+      {/* <h2>{props.numberOfItems}</h2> */}
     </header>
   )
 }
 
+function searchingFor(term) {
+  return function (x) {
+    return x.title.toLowerCase().includes(term.toLowerCase()) ||
+      x.partNumber.toLowerCase().includes(term.toLowerCase()) || !term;
+  }
+}
 
+class Filter extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      itemData: itemData,
+      term: "",
+    }
+
+    this.searchItem = this.searchItem.bind(this)
+
+
+  }
+
+  searchItem(event) {
+    this.setState({ term: event.target.value })
+  }
+
+
+  render() {
+    const { term } = this.state;
+    return (
+      <div>
+        <form>
+          <input type="text"
+            placeholder="Search an Item"
+            onChange={this.searchItem}
+            value={term} />
+        </form>
+        {itemData.filter(searchingFor(term)).map((itemData) =>
+          <Items
+            title={itemData.title}
+            partNumber={itemData.partNumber}
+            key={itemData.id} />
+        )}
+      </div>
+    );
+  }
+}
 
 const App = (props) => {
   return (
@@ -30,14 +76,7 @@ const App = (props) => {
         officeName="Houston Office"
         numberOfItems={props.items.length} />
 
-      {/* this is where the items will be */}
-
-      {props.items.map(itemData =>
-        <Items
-          title={itemData.title}
-          partNumber={itemData.partNumber}
-          key={itemData.id} />
-      )}
+      <Filter />
       <form>
         <button className="final_submit">Submit</button>
       </form>
@@ -56,6 +95,10 @@ export default class Home extends Component {
         <div className='home'>
           <App items={itemData} />
         </div>
+
+        {/* <div>
+          <ItemFamily />
+        </div> */}
       </div>
     );
   }
