@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class ItemQuantity extends Component {
     state = {
-        quantity: 0
+        quantity: ''
     }
     constructor(props) {
         super(props);
@@ -33,7 +33,7 @@ class ItemQuantity extends Component {
     onQuantityInput = (e) => {
         let val = parseInt(e.target.value);
         if (isNaN(val)) {
-            val = 0;
+            val = undefined;
         }
         this.setState({
             quantity: val
@@ -46,7 +46,7 @@ class ItemQuantity extends Component {
 
                 <button className='decrement' onClick={this.decrementClick} >-</button>
 
-                <input className="input-bar" onFocus='select' className="input-span" type='number' value={this.state.quantity} autoComplete='off' onChange={this.onQuantityInput} />
+                <input className="input-bar" className="input-span" type='number' value={this.state.quantity} autoComplete='off' onChange={this.onQuantityInput} />
 
                 <button className='increment' onClick={this.incrementClick}>+</button>
 
